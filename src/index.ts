@@ -151,69 +151,6 @@ app.get("/paper/:paperId", async(req: Request, res: Response) => {
     }
 })
 
-app.get("/sem", async(req: Request, res: Response) => {
-    try {
-        const sems = await Sem.find();
-        if(!sems){
-            res.status(404).json({
-                status: "failed",
-                message: "No content found"
-            })
-            return;
-        }
-        res.status(200).json({
-            status: "success",
-            message: "content fetched successfully",
-            data: sems
-        })
-        return;
-    } catch (e) {
-        console.log(e)
-    }
-})
-
-app.get("/sub", async(req: Request, res: Response) => {
-    try {
-        const subs = await Subject.find();
-        if(!subs){
-            res.status(404).json({
-                status: "failed",
-                message: "No content found"
-            })
-            return;
-        }
-        res.status(200).json({
-            status: "success",
-            message: "content fetched successfully",
-            data: subs
-        })
-        return;
-    } catch (e) {
-        console.log(e)
-    }
-})
-
-app.get("/paper", async(req: Request, res: Response) => {
-    try {
-        const papers = await Paper.find();
-        if(!papers){
-            res.status(404).json({
-                status: "failed",
-                message: "No content found"
-            })
-            return;
-        }
-        res.status(200).json({
-            status: "success",
-            message: "content fetched successfully",
-            data: papers
-        })
-        return;
-    } catch (e) {
-        console.log(e)
-    }
-})
-
 // servering
 dbConnect(dbURI).then(() => {
     console.log("Database Uri")
